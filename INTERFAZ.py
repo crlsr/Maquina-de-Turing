@@ -27,7 +27,7 @@ def revision_valores():
         print(tape_list)
         messagebox.showinfo("Éxito", "Los valores son tolerables para el programa")
         labelx = customtkinter.CTkLabel(master=frameVisualizer, text=value, font= ("Broadway", 18, ))
-        return labelx.place(x=30, y=60)
+        return labelx.place(x=105, y=60)
 
 def seleccionar_fila():
     file_path = filedialog.askopenfilename(filetypes=[("Text files", "*.txt *.csv")])
@@ -104,7 +104,7 @@ tapeEntry.pack(padx=10, pady=15, fill ='x')
 checkButton = customtkinter.CTkButton(master=leftFrame, text="Comprobar", font=("Century Gothic", 22, "bold"), command=revision_valores, fg_color="black",text_color="white")
 checkButton.pack(side="left", padx=10, pady=5)
 
-fileButton=customtkinter.CTkButton(master=leftFrame, text="Elegir Fila", font=("Century Gothic", 22, "bold"), command=seleccionar_fila, fg_color="black",text_color="white")
+fileButton=customtkinter.CTkButton(master=leftFrame, text="Elegir Instrucciones", font=("Century Gothic", 22, "bold"), command=seleccionar_fila, fg_color="black",text_color="white")
 fileButton.pack(side="left", padx=10, pady=5)
 
 runButton = customtkinter.CTkButton(master= leftFrame, font=("Century Gothic", 22, "bold"), text="Iniciar", command=iniciar, fg_color="black",text_color="white")
@@ -121,7 +121,7 @@ my_image = customtkinter.CTkImage(light_image=Image.open('FLECHA.png'), size=(51
 canvas = customtkinter.CTkCanvas(frameVisualizer, width=300, height=200, bg='black')
 
 my_label = customtkinter.CTkLabel(master=frameVisualizer, text="", image=my_image)
-my_label.place(x=10, y=9)
+my_label.place(x=85, y=9)
 
 
 saveButton = customtkinter.CTkButton(master=rightFrame, text="Guardar", font=("Century Gothic", 22, "bold"), command=guardar_cinta, fg_color="black",text_color="white")
