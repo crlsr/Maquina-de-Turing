@@ -9,6 +9,7 @@ from PIL import Image
 
 tape_list = []
 list_statuses = []
+head_position = 0
 labex = None
 
 def revision_valores():
@@ -64,7 +65,7 @@ def labelMovement(tapeMovement, labelToPlace):
 def iniciar():
     global labelx
     if tape_list and list_statuses:
-        tm = MaquinaTuring(tape_list, list_statuses, labelx)
+        tm = MaquinaTuring(tape_list, list_statuses, labelx, head_position)
         tm.run()
     else:
         messagebox.showerror("Error", "Por favor, comprueba los valores y selecciona un archivo antes de ejecutar la Máquina de Turing")
@@ -79,6 +80,20 @@ def guardar_cinta():
             f.write("%s\n" % item)
     messagebox.showinfo("Éxito", f"El archivo se guardó correctamente en {file_path}")
     root.destroy()
+
+def mover_cabeza(tape: list):
+    if(len(tape)==0):
+        pass
+        #Decir que no ha ingresado una lista (mensaje)
+    else:
+        pass
+        #Pedir numero a usuario, guardar en head_position (input)
+        if head_position > len(tape) or head_position < 0:
+            #Mostrar mensaje de error (mensaje)
+            head_position = 0
+        else:
+            #Mostrar mensaje de guardado bien (mensaje)
+            pass
 
 root = customtkinter.CTk()
 root.geometry("800x450")
@@ -126,6 +141,9 @@ my_label.place(x=85, y=9)
 
 saveButton = customtkinter.CTkButton(master=rightFrame, text="Guardar", font=("Century Gothic", 22, "bold"), command=guardar_cinta, fg_color="black",text_color="white")
 saveButton.pack(side="bottom", pady=10)
+
+MoverButton = customtkinter.CTkButton(master=rightFrame, text="Mover cabeza", font=("Century Gothic", 22, "bold"), command=mover_cabeza, fg_color="black",text_color="white")
+MoverButton.pack(side="bottom", pady=20)
 
 root.mainloop()
 

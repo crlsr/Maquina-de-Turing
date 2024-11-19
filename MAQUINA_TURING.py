@@ -48,7 +48,7 @@ class MaquinaTuring:
             self.head_position = len(self.tape) - 1
 
         newLabel = ''.join(str(self.tape)).replace("[", "").replace("]", "")
-        self.label.configure(text = newLabel, font= ("Times New Roman", 20.5, )) 
+        self.label.configure(text = newLabel, font= ("Century Gothic", 20.5, )) 
         self.label.after(500, self.step)
 
     def final(self):
