@@ -85,14 +85,18 @@ def mover_cabeza(tape: list):
     if(len(tape)==0):
         pass
         #Decir que no ha ingresado una lista (mensaje)
+        messagebox.showerror("Error", "Ingresa una lista primero") 
     else:
         pass
         #Pedir numero a usuario, guardar en head_position (input)
-        if head_position > len(tape) or head_position < 0:
-            #Mostrar mensaje de error (mensaje)
+        tapeMensaje = customtkinter.CTkEntry(master=leftFrame, placeholder_text="Ingresa un numero", width=50)
+        tapeMensaje.pack(padx=10, pady=25, fill ='x')
+        if head_position > len(tapeMensaje) or head_position < 0:
+            messagebox.showerror("Error", "Valor inválido")
             head_position = 0
         else:
             #Mostrar mensaje de guardado bien (mensaje)
+            messagebox.showerror("Se ha guardado correctamente")
             pass
 
 root = customtkinter.CTk()
