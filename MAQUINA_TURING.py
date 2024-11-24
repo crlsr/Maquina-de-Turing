@@ -23,11 +23,11 @@ class MaquinaTuring:
             self.tape[self.head_position] = new_symbol
             newLabel = ''.join(str(self.tape)).replace("[", "").replace("]", "")
 
-            self.label.configure(text = newLabel, font= ("Times New Roman", 20.5, )) 
+            self.label.configure(text = newLabel, font= ("Century Gothic", 20.5, )) 
             print (str(self.tape))
             print(newLabel)
 
-            self.head_position += head_movement
+            self.set_head_position(self.head_position + head_movement)
             print(f"Head movement: {head_movement}")
 
             self.label.place(x = 105 - 20 * self.head_position, y=60)
@@ -39,13 +39,6 @@ class MaquinaTuring:
                 print("Se alcanzó un estado final, se detiene la animación.")
                 print(self.tape)
                 return
-        
-        if self.head_position < 0:
-            self.tape.insert(0,0)
-            self.head_position = 0
-        elif self.head_position >= len(self.tape):
-            self.tape.append(0)
-            self.head_position = len(self.tape) - 1
 
         newLabel = ''.join(str(self.tape)).replace("[", "").replace("]", "")
         self.label.configure(text = newLabel, font= ("Century Gothic", 20.5, )) 
@@ -54,6 +47,28 @@ class MaquinaTuring:
     def final(self):
         return self.current_state in self.final_states
 
+    def set_head_position(self, int):
+        if int > len(self.tape):
+            return
+        if int < 2:
+            if int == 0:
+                self.tape.insert(0, 0)
+                self.tape.insert(0, 0)
+            elif int == 1:
+                self.tape.insert(0, 0)
+            self.head_position = 2
+
+        elif int >= len(self.tape) - 2:
+            if int == len(self.tape) - 1:
+                self.tape.append(0)
+            elif int == len(self.tape) - 2:
+                self.tape.append(0)
+                self.tape.append(0)
+            self.head_position = len(self.tape) - 3
+        
+        else:
+            self.head_position = int
+            
     def run(self):
         self.step()
        

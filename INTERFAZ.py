@@ -22,12 +22,13 @@ def revision_valores():
     elif not value:
         messagebox.showerror("Error", "Valor inválido")
     else:
+        tape_list.clear()
         for i in value:
             j = int(i)
             tape_list.append(j)
         print(tape_list)
         messagebox.showinfo("Éxito", "Los valores son tolerables para el programa")
-        labelx = customtkinter.CTkLabel(master=frameVisualizer, text=value, font= ("Broadway", 18, ))
+        labelx = customtkinter.CTkLabel(master=frameVisualizer, text=value, font= ("Century Gothic", 18, ))
         return labelx.place(x=105, y=60)
 
 def seleccionar_fila():
