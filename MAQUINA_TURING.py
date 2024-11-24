@@ -23,7 +23,7 @@ class MaquinaTuring:
             self.tape[self.head_position] = new_symbol
             newLabel = ''.join(str(self.tape)).replace("[", "").replace("]", "")
 
-            self.label.configure(text = newLabel, font= ("Times New Roman", 20.5, )) 
+            self.label.configure(text = newLabel, font= ("Century Gothic", 20.5, )) 
             print (str(self.tape))
             print(newLabel)
 
