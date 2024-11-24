@@ -83,11 +83,8 @@ def guardar_cinta():
 
 def mover_cabeza(tape: list):
     if(len(tape)==0):
-        pass
-        #Decir que no ha ingresado una lista (mensaje)
         messagebox.showerror("Error", "Ingresa una lista primero") 
     else:
-        pass
         #Pedir numero a usuario, guardar en head_position (input)
         tapeMensaje = customtkinter.CTkEntry(master=leftFrame, placeholder_text="Ingresa un numero", width=50)
         tapeMensaje.pack(padx=10, pady=25, fill ='x')
